@@ -75,21 +75,23 @@ function nextSequence() {
 
 }
 
-// Play the sound of the color passed as an argument
-let volume = 1;
+// Makes volume slider
+let volume = 0.25;
 let volumeSlider = document.getElementById('volume-slider');
+volumeSlider.value = volume * 100; // set the slider value to 25
 volumeSlider.addEventListener("input", function(e) {
   volume = Number(e.currentTarget.value) / 100;
   if (volume < 0 || volume > 1 || isNaN(volume)) {
     volume = 1;
   }
 });
-
+// plays the sounds
 function playSound(soundName) {
   var audio = new Audio("sounds/" + soundName + ".mp3");
   audio.volume = volume;
   audio.play();
 }
+
 
 
 
